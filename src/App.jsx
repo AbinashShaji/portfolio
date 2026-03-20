@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import CustomCursor from './components/CustomCursor'
 import HeroSection from './sections/HeroSection'
 import AboutSection from './sections/AboutSection'
 import SkillsSection from './sections/SkillsSection'
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="relative overflow-hidden text-stone-800 transition-colors duration-300 dark:text-stone-100">
+      <CustomCursor />
       <div className="site-shell">
         <HeroSection theme={theme} onToggleTheme={toggleTheme} />
         <main className="relative z-10">

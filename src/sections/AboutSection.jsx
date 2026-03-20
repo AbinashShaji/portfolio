@@ -1,4 +1,5 @@
 import MotionReveal from '../components/MotionReveal'
+import PortfolioEyes from '../components/PortfolioEyes'
 import SectionTitle from '../components/SectionTitle'
 
 const focusAreas = [
@@ -14,7 +15,7 @@ function AboutSection() {
         <SectionTitle
           eyebrow="About"
           title="Thoughtful products begin with clear thinking."
-          description="Abinash Shaji is a developer who enjoys reducing noise, structuring ideas, and turning complex requirements into dependable experiences."
+          description="I am a developer who enjoys reducing noise, structuring ideas, and turning complex requirements into dependable experiences."
         />
 
         <MotionReveal className="glass-card space-y-5" delay={0.1}>
@@ -23,6 +24,8 @@ function AboutSection() {
               {item}
             </p>
           ))}
+
+          <PortfolioEyes />
         </MotionReveal>
       </div>
     </section>

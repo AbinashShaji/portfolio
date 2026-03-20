@@ -64,9 +64,9 @@ function SkillsSection() {
             <MotionReveal
               key={group.title}
               delay={index * 0.08}
-              className="soft-card"
+              className="soft-card skill-group-card"
             >
-              <h3 className="text-2xl font-semibold text-stone-900">{group.title}</h3>
+              <h3 className="skill-group-title text-2xl font-semibold">{group.title}</h3>
               <ul className="mt-5 flex flex-wrap gap-3">
                 {group.items.map((item) => (
                   <li key={item} className="skill-pill">
