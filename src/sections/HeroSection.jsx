@@ -44,7 +44,7 @@ function HeroSection({ theme, onToggleTheme }) {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover object-center [image-rendering:auto]"
+          className="hero-image h-full w-full object-cover object-center [image-rendering:auto]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(245,239,230,0.34)] via-[rgba(245,239,230,0.1)] to-[rgba(245,239,230,0.02)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_32%,rgba(255,250,244,0.2),transparent_26%)]" />
@@ -134,11 +134,11 @@ function HeroSection({ theme, onToggleTheme }) {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-3xl text-left"
           >
-            <h1 className="max-w-[11ch] font-['Playfair_Display'] text-[2.9rem] leading-[1.08] tracking-[-0.03em] text-[#2c2c2c] sm:text-[3.8rem] lg:text-[4.5rem]">
+            <h1 className="max-w-[11ch] font-['Playfair_Display'] text-[2.9rem] leading-[1.08] tracking-[-0.03em] text-[#2c2c2c] dark:text-white sm:text-[3.8rem] lg:text-[4.5rem]">
               I build systems with clarity, not complexity.
             </h1>
 
-            <p className="mt-6 max-w-2xl font-['Inter'] text-base leading-8 text-[#4f4f4f] sm:text-lg">
+            <p className="mt-6 max-w-2xl font-['Inter'] text-base leading-8 text-[#4f4f4f] dark:text-white sm:text-lg">
               Full-stack developer focused on solving real-world problems
               through thoughtful design and efficient code.
             </p>

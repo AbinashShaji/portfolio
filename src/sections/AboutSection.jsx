@@ -1,5 +1,4 @@
 import MotionReveal from '../components/MotionReveal'
-import PortfolioEyes from '../components/PortfolioEyes'
 import SectionTitle from '../components/SectionTitle'
 
 const focusAreas = [
@@ -24,8 +23,6 @@ function AboutSection() {
               {item}
             </p>
           ))}
-
-          <PortfolioEyes />
         </MotionReveal>
       </div>
     </section>
