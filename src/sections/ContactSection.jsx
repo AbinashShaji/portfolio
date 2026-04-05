@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { AnimatePresence, motion as Motion } from 'framer-motion'
 import MotionReveal from '../components/MotionReveal'
 import SectionTitle from '../components/SectionTitle'
 
@@ -28,8 +30,12 @@ const socials = [
 ]
 
 function ContactSection() {
+  const [submitted, setSubmitted] = useState(false)
+
   const handleSubmit = (event) => {
     event.preventDefault()
+    setSubmitted(true)
+    window.setTimeout(() => setSubmitted(false), 2600)
   }
 
   return (
@@ -38,11 +44,16 @@ function ContactSection() {
         <div className="max-w-2xl">
           <SectionTitle
             eyebrow="Contact"
-            title="Open to meaningful collaborations and thoughtful conversations."
+            title="Let&apos;s build something impactful together."
             description="Whether it is a project idea, an internship opportunity, or a product problem worth solving, Abinash would love to hear about it."
           />
 
           <MotionReveal delay={0.08} className="mt-8">
+            <div className="contact-status">
+              <span className="contact-status-dot" />
+              <span>Open to internships and meaningful collaborations</span>
+            </div>
+
             <div className="contact-meta">
               {contactDetails.map((detail) => (
                 <a key={detail.label} href={detail.href} className="contact-detail">
@@ -98,6 +109,20 @@ function ContactSection() {
             <button type="submit" className="cta-solid w-full justify-center">
               Send Message
             </button>
+
+            <AnimatePresence>
+              {submitted ? (
+                <Motion.p
+                  className="contact-success"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35 }}
+                >
+                  Message captured. Thanks for reaching out.
+                </Motion.p>
+              ) : null}
+            </AnimatePresence>
           </form>
         </MotionReveal>
       </div>

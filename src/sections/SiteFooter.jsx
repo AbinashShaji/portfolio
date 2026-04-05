@@ -1,13 +1,6 @@
 import MotionReveal from '../components/MotionReveal'
 import footerImage from '../assets/footer.png'
 
-const navItems = [
-  ['About', '#about'],
-  ['Skills', '#skills'],
-  ['Projects', '#projects'],
-  ['Contact', '#contact'],
-]
-
 const socialLinks = [
   {
     label: 'GitHub',
@@ -39,58 +32,40 @@ const socialLinks = [
   },
 ]
 
-const footerPetals = Array.from({ length: 8 }, (_, index) => ({
-  id: index,
-  left: `${8 + index * 10}%`,
-  delay: `${index * 1.4}s`,
-  duration: `${12 + (index % 4) * 1.5}s`,
-}))
-
-function SiteFooter() {
+function SiteFooter({ navItems = [], currentPage }) {
   const currentYear = new Date().getFullYear()
+  const showFooterImage = currentPage === 'home'
 
   return (
-    <footer className="site-footer scenic-footer">
+    <footer className="site-footer scenic-footer site-footer-compact">
       <div className="absolute inset-0">
-        <img
-          src={footerImage}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="footer-image h-full w-full object-cover object-[38%_center] md:object-[32%_center]"
-        />
-        <div className="footer-scene-overlay" />
-        <div className="footer-scene-topfade" />
-      </div>
-
-      <div className="petal-field" aria-hidden="true">
-        {footerPetals.map((petal) => (
-          <span
-            key={petal.id}
-            className="falling-petal footer-petal"
-            style={{
-              left: petal.left,
-              animationDelay: petal.delay,
-              animationDuration: petal.duration,
-            }}
+        {/* Footer image only appears on the home page. */}
+        {showFooterImage ? (
+          <img
+            src={footerImage}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="footer-image h-full w-full object-cover object-[38%_center] md:object-[32%_center]"
           />
-        ))}
+        ) : null}
+        <div className="footer-scene-overlay" />
       </div>
 
-      <MotionReveal className="container-shell relative z-[2] flex min-h-[28rem] items-center justify-center py-24 text-center sm:py-28" y={28}>
-        <div className="footer-content footer-content-panel mx-auto flex w-full max-w-3xl flex-col items-center justify-center gap-6">
+      <MotionReveal className="container-shell relative z-[2] py-8 text-center sm:py-10" y={16}>
+        <div className="footer-content footer-content-panel mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-3">
           <div>
-            <a href="#top" className="footer-title-link">
-              <h2 className="font-['Playfair_Display'] text-4xl font-bold text-[rgba(255,255,255,0.98)] sm:text-5xl">
+            <a href="#home" className="footer-title-link">
+              <h2 className="hero-title-display footer-title text-2xl font-bold sm:text-3xl">
                 Abinash Shaji
               </h2>
             </a>
-            <p className="mt-4 text-base font-medium text-[rgba(255,255,255,0.9)] sm:text-lg">
-              Crafting elegant solutions with code
+            <p className="footer-tagline mt-2 text-sm font-medium sm:text-base">
+              Full-stack and UI/UX developer crafting elegant digital experiences
             </p>
           </div>
 
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-[rgba(255,255,255,0.88)] sm:text-base">
+          <nav className="footer-nav flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
             {navItems.map(([label, href]) => (
               <a key={label} href={href} className="footer-nav-link">
                 {label}
@@ -98,7 +73,7 @@ function SiteFooter() {
             ))}
           </nav>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-[rgba(255,255,255,0.92)]">
+          <div className="footer-social-row flex flex-wrap items-center justify-center gap-3">
             {socialLinks.map((item) => (
               <a
                 key={item.label}

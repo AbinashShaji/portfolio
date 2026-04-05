@@ -32,20 +32,21 @@ function JourneySection() {
           description="The path so far is defined by steady practice, strong fundamentals, and a growing systems design mindset."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="journey-timeline mt-12">
           {milestones.map((item, index) => (
             <MotionReveal
               key={item.title}
-              delay={index * 0.08}
-              className="timeline-card"
+              delay={index * 0.1}
+              className="journey-timeline-item"
             >
-              <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
-                {item.subtitle}
-              </p>
-              <h3 className="mt-4 text-2xl font-semibold text-stone-900">
-                {item.title}
-              </h3>
-              <p className="section-copy mt-4">{item.description}</p>
+              <div className="journey-marker" aria-hidden="true">
+                <span className="journey-marker-core" />
+              </div>
+              <div className="timeline-card journey-card">
+                <p className="journey-card-kicker">{item.subtitle}</p>
+                <h3 className="mt-4 text-2xl font-semibold text-stone-900">{item.title}</h3>
+                <p className="section-copy mt-4">{item.description}</p>
+              </div>
             </MotionReveal>
           ))}
         </div>
